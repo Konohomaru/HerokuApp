@@ -1,0 +1,15 @@
+name: .Net
+
+on: [push, pull_request]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout actions
+        uses: actions/checkout@v2
+
+      - name: Build, test and deploy
+        run: make webapi.heroku HEROKU_API_KEY=${{ secrets.HEROKU_API_KEY }}
