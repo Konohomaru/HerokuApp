@@ -3,7 +3,7 @@ name: .Net
 on: [push, pull_request]
 
 jobs:
-  build:
+  Build, test & deploy:
 
     runs-on: ubuntu-latest
 
@@ -11,5 +11,8 @@ jobs:
       - name: Checkout actions
         uses: actions/checkout@v2
 
-      - name: Build, test and deploy
+      - name: Run ModelTests
+        run: make modeltests
+
+      - name: Deploy WebAPI
         run: make webapi.heroku HEROKU_API_KEY=${{ secrets.HEROKU_API_KEY }}
