@@ -14,7 +14,7 @@ webapi:
 
 webapi.heroku:
 	@echo Login to Heroku:
-	docker login -u=_ -p=${HEROKU_API_KEY} registry.heroku.com
+	echo ${HEROKU_API_KEY} | docker login -u=_ --password-stdin registry.heroku.com
 	
 	@echo Build Docker image:
 	docker build -f WebAPI.heroku.dockerfile -t registry.heroku.com/whippingboy/web .
