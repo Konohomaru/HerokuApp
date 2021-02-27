@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS sdk
 
 # This URL value requested from Heroku Dyno.
-ENV ASPNETCORE_URLS=http://*:$PORT
+# ENV ASPNETCORE_URLS=http://*:$PORT
 
 WORKDIR /app
 COPY Source/Model/ src/Model/
@@ -21,4 +21,4 @@ COPY --from=sdk app/publish/ publish/
 
 # Run WebAPI.
 # Using CMD instead of ENTRYPOINT requested from Heroku Dyno.
-CMD dotnet publish/WebAPI.dll
+CMD ASPNETCORE_URLS=http://*:$PORT dotnet publish/WebAPI.dll
