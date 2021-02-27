@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run ModelTests
-        run: make modeltests
+        runs: make modeltests
 
       - name: Deploy WebAPI
         run: make webapi.heroku HEROKU_API_KEY=${{ secrets.HEROKU_API_KEY }}
