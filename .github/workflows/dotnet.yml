@@ -3,7 +3,7 @@ name: .Net
 on: [push, pull_request]
 
 jobs:
-  Build, test & deploy:
+  Deploy:
 
     runs-on: ubuntu-latest
 
