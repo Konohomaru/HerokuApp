@@ -23,4 +23,4 @@ webapi.heroku:
 	docker push registry.heroku.com/whippingboy/web
 
 	@echo Release container:
-	heroku container:release web
+	heroku container:release web -a whippingboy
